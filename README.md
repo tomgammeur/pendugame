@@ -1,2 +1,2 @@
 # pendugame
-le jeu du pendu en HTML, JS, CZSS
+**le Jeu du Pendu** est HTML, JS, CZSS
