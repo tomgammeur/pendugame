@@ -1,0 +1,72 @@
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+          animation-duration: 3s;
+              background-image: url('y2k.jpg');
+          font-size: 150%;
+  animation-name: slidein;
+          
+        }
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+        h1 {
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+          text-align: center;
+          
+
+
+          
+        }
+        #word {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+        #letters {
+            font-size: 18px;
+        }
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.style
+{
+    color : black;
+}
+ 
+.style:hover
+{
+    color : white;
+}

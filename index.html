@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Jeu du Pendu</title>
+</head>  
+  <body>
+        <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+    <h1>Jeu du Pendu</h1>
+    <div id="word"></div>
+    <div id="letters"></div>
+    <div id="hangman">Erreurs: 0 / 6</div>
+    <audio id="correctSound">
+        <source src="correct.mp3" type="audio/mpeg">
+        Erreur 12.
+    </audio>
+    <audio id="incorrectSound">
+        <source src="incorrect.mp3" type="audio/mpeg">
+        Erreur 12.
+    </audio>
+        <script type="text/javascript" id="cookiebanner" src="https://cdnjs.cloudflare.com/ajax/libs/cookie-banner/1.0.0/cookiebanner.min.js" data-position="top" data-fg="#ffffff" data-bg="#3c546b" data-link="#99011e" data-moreinfo="https://tom-gammeur.tomgammeur.repl.co/aide.html" data-message="Ce site est affilié à TomG. " data-linkmsg="En savoir plus"></script>
+    <script>
+const words = ["LYCEE", "HIRONDELLE", "TABLETTE", "JAVASCRIPT", "GOUVERNEMENT", "OMNIVORE", "MAGASIN", "CHEVAL", "TABLEIKEA", "POISSON", "GIRAFE", "INDECOLLABLES", "PRIORITE", "EMBALLER", "RADIOPHONIE", "ACOLYTE", "PERLE", "DALMATIEN", "ENCRE", "ALLURE", "ALIGNEMENTS", "CHAT", "EFFECTIF", "UNIFORME", "CAVALIER", "REVISION", "SURVEUR", "TRANSPORTER", "INSOMNIAQUE", "BIENVEILLANT", "SALADIER", "DEMENAGER", "MUSIQUE", "TENDRAIT", "ARRANGEMENT", "AIMANT", "INTERVALLE", "PARCHEMIN", "INDUSTRIEL", "PAUMER", "GRAND", "FABRIQUE", "LITTERATURE", "TERRITOIRE", "PETIT", "CHEVEUX", "CHARGEUR", "SERVICE", "FORCE", "MOYENNE", "VITESSE", "SON", "SIMPLIFIER", "ACCUMULER", "RATATOUILLE", "CARTEL", "COSMETIQUE", "TELEPHONE", "ANTICONSTITUTIONNELLEMENT", ];
+      
+        const maxAttempts = 4;
+
+        let selectedWord = "";
+        let displayedWord = [];
+        let guessedLetters = [];
+        let attempts = 0;
+
+        const correctSound = document.getElementById("correctSound");
+        const incorrectSound = document.getElementById("incorrectSound");
+
+        function newGame() {
+            selectedWord = words[Math.floor(Math.random() * words.length)];
+            displayedWord = new Array(selectedWord.length).fill("_");
+            guessedLetters = [];
+            attempts = 0;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById("word").textContent = displayedWord.join(" ");
+            document.getElementById("letters").textContent = "Lettres devinées: " + guessedLetters.join(", ");
+            document.getElementById("hangman").textContent = "Erreurs: " + attempts + " / " + maxAttempts;
+        }
+
+        function guessLetter(letter) {
+            if (guessedLetters.includes(letter)) {
+                return; // Ne fait rien si la lettre a déjà été devinée.
+            }
+            guessedLetters.push(letter);
+
+            if (selectedWord.includes(letter)) {
+                for (let i = 0; i < selectedWord.length; i++) {
+                    if (selectedWord[i] === letter) {
+                        displayedWord[i] = letter;
+                    }
+                }
+                correctSound.play();
+            } else {
+                attempts++;
+                incorrectSound.play();
+            }
+
+            updateDisplay();
+
+            if (displayedWord.join("") === selectedWord) {
+                alert("Bravo, vous avez gagné ! Le mot était bien : " + selectedWord);
+                newGame();
+            } else if (attempts >= maxAttempts) {
+                alert("Désolé, vous avez perdu. Le mot était : " + selectedWord);
+                newGame();
+            }
+        }
+
+        newGame();
+
+        document.addEventListener("keydown", (event) => {
+            if (event.keyCode >= 65 && event.keyCode <= 90) {
+                guessLetter(event.key.toUpperCase());
+            }
+        });
+    </script>
+        <script src="script.js"></script>
+    <blockquote>
+    </blockquote>
+<p class="style">Bon courage</p>
+</body>
+</html>
