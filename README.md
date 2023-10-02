@@ -5,5 +5,5 @@ Tout le code que j'ai utilisé est accésible pour vous.
 
 
 <h2>Pour y jouer</h2>
-<p>Un site est public/</p>
+<p>Un site est public :</p>
 <a href="https://pendugame.tomgammeur.repl.co/">Cliquez ici</a>
