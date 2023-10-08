@@ -1,5 +1,5 @@
 # pendugame
-<h1>**le Jeu du Pendu**</h1>
+<h1>le Jeu du Pendu</h1>
 C'est un site que j'ai fait en utilisant le HTML, JS, CSS
 Tout le code que j'ai utilisé est accésible pour vous.
 
