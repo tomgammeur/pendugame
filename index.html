@@ -24,73 +24,139 @@
         Erreur 12.
     </audio>
         <script type="text/javascript" id="cookiebanner" src="https://cdnjs.cloudflare.com/ajax/libs/cookie-banner/1.0.0/cookiebanner.min.js" data-position="top" data-fg="#ffffff" data-bg="#3c546b" data-link="#99011e" data-moreinfo="https://tom-gammeur.tomgammeur.repl.co/aide.html" data-message="Ce site est affilié à TomG. " data-linkmsg="En savoir plus"></script>
+    <p class="lettres">Bon courage</p>
+    <div class="keyboard">
+        <button class="key">A</button>
+        <button class="key">B</button>
+        <button class="key">C</button>
+        <button class="key">D</button>
+        <button class="key">E</button>
+        <button class="key">F</button>
+        <button class="key">G</button>
+        <button class="key">H</button>
+        <button class="key">I</button>
+        <button class="key">J</button>
+        <button class="key">K</button>
+        <button class="key">L</button>
+        <button class="key">M</button>
+        <button class="key">N</button>
+        <button class="key">O</button>
+        <button class="key">P</button>
+        <button class="key">Q</button>
+        <button class="key">R</button>
+        <button class="key">S</button>
+        <button class="key">T</button>
+        <button class="key">U</button>
+        <button class="key">V</button>
+        <button class="key">W</button>
+        <button class="key">X</button>
+        <button class="key">Y</button>
+        <button class="key">Z</button>
+    </div>
     <script>
-const words = ["LYCEE", "HIRONDELLE", "TABLETTE", "JAVASCRIPT", "GOUVERNEMENT", "OMNIVORE", "MAGASIN", "CHEVAL", "TABLEIKEA", "POISSON", "GIRAFE", "INDECOLLABLES", "PRIORITE", "EMBALLER", "RADIOPHONIE", "ACOLYTE", "PERLE", "DALMATIEN", "ENCRE", "ALLURE", "ALIGNEMENTS", "CHAT", "EFFECTIF", "UNIFORME", "CAVALIER", "REVISION", "SURVEUR", "TRANSPORTER", "INSOMNIAQUE", "BIENVEILLANT", "SALADIER", "DEMENAGER", "MUSIQUE", "TENDRAIT", "ARRANGEMENT", "AIMANT", "INTERVALLE", "PARCHEMIN", "INDUSTRIEL", "PAUMER", "GRAND", "FABRIQUE", "LITTERATURE", "TERRITOIRE", "PETIT", "CHEVEUX", "CHARGEUR", "SERVICE", "FORCE", "MOYENNE", "VITESSE", "SON", "SIMPLIFIER", "ACCUMULER", "RATATOUILLE", "CARTEL", "COSMETIQUE", "TELEPHONE", "ANTICONSTITUTIONNELLEMENT", ];
-      
-        const maxAttempts = 4;
-
-        let selectedWord = "";
-        let displayedWord = [];
-        let guessedLetters = [];
-        let attempts = 0;
-
-        const correctSound = document.getElementById("correctSound");
-        const incorrectSound = document.getElementById("incorrectSound");
-
-        function newGame() {
-            selectedWord = words[Math.floor(Math.random() * words.length)];
-            displayedWord = new Array(selectedWord.length).fill("_");
-            guessedLetters = [];
-            attempts = 0;
-            updateDisplay();
-        }
-
-        function updateDisplay() {
-            document.getElementById("word").textContent = displayedWord.join(" ");
-            document.getElementById("letters").textContent = "Lettres devinées: " + guessedLetters.join(", ");
-            document.getElementById("hangman").textContent = "Erreurs: " + attempts + " / " + maxAttempts;
-        }
-
-        function guessLetter(letter) {
-            if (guessedLetters.includes(letter)) {
-                return; // Ne fait rien si la lettre a déjà été devinée.
-            }
-            guessedLetters.push(letter);
-
-            if (selectedWord.includes(letter)) {
-                for (let i = 0; i < selectedWord.length; i++) {
-                    if (selectedWord[i] === letter) {
-                        displayedWord[i] = letter;
-                    }
-                }
-                correctSound.play();
-            } else {
-                attempts++;
-                incorrectSound.play();
-            }
-
-            updateDisplay();
-
-            if (displayedWord.join("") === selectedWord) {
-                alert("Bravo, vous avez gagné ! Le mot était bien : " + selectedWord);
-                newGame();
-            } else if (attempts >= maxAttempts) {
-                alert("Désolé, vous avez perdu. Le mot était : " + selectedWord);
-                newGame();
-            }
-        }
-
-        newGame();
-
-        document.addEventListener("keydown", (event) => {
-            if (event.keyCode >= 65 && event.keyCode <= 90) {
-                guessLetter(event.key.toUpperCase());
+        const keyboard = document.querySelector(".keyboard");
+        keyboard.addEventListener("click", function (event) {
+            if (event.target.classList.contains("key")) {
+                guessLetter(event.target.textContent);
             }
         });
     </script>
+        <!-- Ajoutez des boutons pour chaque lettre de l'alphabet -->
+    </div>
         <script src="script.js"></script>
+    <button class="solution">Aide ?</button>
+         <div class="reponse cache">
+           Tentez de deviner le mot secret en entrant des lettres une par une au clavier. Ne gaspillez pas vos coups, car si trop de vos choix sont erronés vous tuerez le pendu et vous perdrez la partie. Si jamais vous galéréz à trouver le mot, la liste de tous les mots possibles sont cachés dans le code source de la page. ;)
+         </div>
+    <script>
+      const btnShow = document.querySelector(".solution");
+      const answer = document.querySelector(".reponse");
+
+      const clickBtn = function () {
+        if (answer.classList.toggle("cache")) {
+          btnShow.textContent = "Aide";
+        } else {
+          btnShow.textContent = "Cacher";
+        }
+      };
+
+      btnShow.addEventListener("click", clickBtn);
+    </script>
     <blockquote>
     </blockquote>
-<p class="style">Bon courage</p>
+    <p>ㅤㅤㅤㅤ</p>
+    <blockquote>
+    </blockquote>
+    <p></p>
+    <blockquote>
+    </blockquote>
+    <p></p>
+    <blockquote>
+    </blockquote>
+    <p></p>
+    <blockquote>
+    </blockquote>
+    <left><h2>Ce jeu vous plait ?</h2></left>
+    <button class="button share_twitter" data-url="http://....">
+        Partager sur X
+    </button>
+    <button class="button share_facebook" data-url="http://....">
+        Partager sur Facebook
+    </button>
+    <button class="button share_gplus" data-url="http://....">
+        Partager sur Google+
+    </button>
+    <button class="button share_linkedin" data-url="http://....">
+        Partager sur LinkedIn
+    </button>
+    <script>
+      (function(){
+
+          var popupCenter = function(url, title, width, height){
+              var popupWidth = width || 640;
+              var popupHeight = height || 320;
+              var windowLeft = window.screenLeft || window.screenX;
+              var windowTop = window.screenTop || window.screenY;
+              var windowWidth = window.innerWidth || document.documentElement.clientWidth;
+              var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+              var popupLeft = windowLeft + windowWidth / 2 - popupWidth / 2 ;
+              var popupTop = windowTop + windowHeight / 2 - popupHeight / 2;
+              var popup = window.open(url, title, 'scrollbars=yes, width=' + popupWidth + ', height=' + popupHeight + ', top=' + popupTop + ', left=' + popupLeft);
+              popup.focus();
+              return true;
+          };
+
+          document.querySelector('.share_twitter').addEventListener('click', function(e){
+              e.preventDefault();
+              var url = this.getAttribute('data-url');
+              var shareUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(document.title) +
+                  "&via=Grafikart_fr" +
+                  "&url=" + encodeURIComponent(url);
+              popupCenter(shareUrl, "Partager sur Twitter");
+          });
+
+          document.querySelector('.share_facebook').addEventListener('click', function(e){
+              e.preventDefault();
+              var url = this.getAttribute('data-url');
+              var shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+              popupCenter(shareUrl, "Partager sur facebook");
+          });
+
+          document.querySelector('.share_gplus').addEventListener('click', function(e){
+              e.preventDefault();
+              var url = this.getAttribute('data-url');
+              var shareUrl = "https://plus.google.com/share?url=" + encodeURIComponent(url);
+              popupCenter(shareUrl, "Partager sur Google+");
+          });
+
+          document.querySelector('.share_linkedin').addEventListener('click', function(e){
+              e.preventDefault();
+              var url = this.getAttribute('data-url');
+              var shareUrl = "https://www.linkedin.com/shareArticle?url=" + encodeURIComponent(url);
+              popupCenter(shareUrl, "Partager sur Linkedin");
+          });
+
+      })();
+    </script>
 </body>
 </html>
