@@ -1,5 +1,4 @@
 window.addEventListener("load", function() {
-    // Une fois que tout le contenu est chargé, masquez l'écran de chargement.
     const loaderWrapper = document.querySelector(".loader-wrapper");
     loaderWrapper.style.display = "none";
 });
@@ -32,7 +31,7 @@ function updateDisplay() {
 
 function guessLetter(letter) {
     if (guessedLetters.includes(letter)) {
-        return; // Ne fait rien si la lettre a déjà été devinée.
+        return; 
     }
     guessedLetters.push(letter);
 
