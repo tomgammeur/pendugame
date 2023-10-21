@@ -3,7 +3,8 @@
 C'est un site que j'ai fait en utilisant le __HTML, JS, CSS__
 
  Tout le code que j'ai utilisé est accésible pour vous.
- 
+###Jouable sur PC et téléphone.
+
 [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
