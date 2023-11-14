@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">                <title>Connexion</title>
 </head>
 <body>
-    <h1>Connexion</h1>
+    <h1 class="style">Connexion</h1>
     <form action="login-process.php" method="post">
         <label for="username">Nom d'utilisateur:</label>
         <input type="text" id="username" name="username" required><br>
