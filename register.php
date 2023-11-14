@@ -8,7 +8,7 @@
     <title>Inscription</title>
 </head>
 <body>
-    <h1>Inscription</h1>
+    <h1 class="style">Inscription</h1>
     <form action="register-process.php" method="post">
         <label for="username">Nom d'utilisateur:</label>
         <input type="text" id="username" name="username" required><br>
