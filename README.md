@@ -19,3 +19,5 @@ Un site est public
 <blockquote>
 </blockquote>
 <a href="https://pendugame.tomgammeur.repl.co/">Cliquez ici</a>
+
+(lien sans doute buggé ou non. Pour tout problème d'acces, contactez nous.)
