@@ -5,7 +5,6 @@
               background-image: url('color.jpg');
           font-size: 150%;
         animation-name: slidein;
-          
         }
 @keyframes slidein {
   from {
@@ -312,13 +311,13 @@ background-color: #FF6600
 }
 
 .resp-sharing-button--twitter {
-  background-color: #55acee;
+  background-color: #000000;
   border-color: #55acee;
 }
 
 .resp-sharing-button--twitter:hover,
 .resp-sharing-button--twitter:active {
-  background-color: #2795e9;
+  background-color: #051f32;
   border-color: #2795e9;
 }
 
@@ -376,5 +375,3 @@ background-color: #FF6600
   background-color: #1DA851;
   border-color: #1DA851;
 }
-
-
