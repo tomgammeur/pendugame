@@ -20,4 +20,4 @@ Un site est public
 </blockquote>
 <a href="https://tinyurl.com/pendugame">Cliquez ici</a>
 
-(lien sans doute buggé ou non. Pour tout problème d'acces, contactez nous.)
+(ce lien est sans doute buggé. Pour tout problème d'acces, contactez nous.)
