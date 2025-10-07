@@ -18,6 +18,5 @@ C'est un site que j'ai fait en utilisant le __HTML, JS, CSS__
 Un site est public 
 <blockquote>
 </blockquote>
-<a href="https://tinyurl.com/pendugame">Cliquez ici</a>
+<a href="https://tomgammeur.github.io/pendugame">Cliquez ici</a>
 
-(ce lien est sans doute buggé. Pour tout problème d'acces, contactez nous.)
