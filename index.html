@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.cdnfonts.com/css/codec-pro" rel="stylesheet">
     <title>Jeu du Pendu</title>
+    
 </head>  
   <body>
         <div class="loader-wrapper">
@@ -18,14 +20,13 @@
     <div id="letters"></div>
     <div id="hangman">Erreurs: 0 / 6</div>
     <audio id="correctSound">
-        <source src="correct.mp3" type="audio/mpeg">
+        <source src="correct (1).mp3" type="audio/mpeg">
         Erreur 12.
     </audio>
     <audio id="incorrectSound">
-        <source src="incorrect.mp3" type="audio/mpeg">
+        <source src="incorrect (1).mp3" type="audio/mpeg">
         Erreur 12.
     </audio>
-          <script type="text/javascript" id="cookiebanner" src="https://cdnjs.cloudflare.com/ajax/libs/cookie-banner/1.0.0/cookiebanner.min.js" data-position="top" data-fg="#ffffff" data-bg="#3c546b" data-link="#99011e" data-moreinfo="https://tom-gammeur.tomgammeur.repl.co/aide.html" data-message="Ce site est affilié à TomG. " data-linkmsg="En savoir plus"></script>   
     <p class="style">Bon courage</p>
     <div class="keyboard">
         <button class="key">A</button>
@@ -118,5 +119,29 @@ a2a_config.locale = "fr";
       <source src="Discord Stage Channel Waiting Music.mp3" type="audio/mpeg">
     Your browser does not support the audio element. Erreur 12
     </audio>
+<div id="cookiePopup" class="cookie-popup">
+    <p>
+        Ce site est affilié à Tomie Corp.
+        <a href="https://github.com/tomgammeur" class="cookie-link">
+            En savoir plus
+        </a>
+    </p>
+
+    <button id="acceptCookies" type="button">
+        J'accepte
+    </button>
+</div>
+
+<script>
+    const cookiePopup = document.getElementById("cookiePopup");
+    const acceptCookies = document.getElementById("acceptCookies");
+    if (localStorage.getItem("cookiesAccepted") === "true") {
+        cookiePopup.style.display = "none";
+    }
+    acceptCookies.addEventListener("click", function () {
+        localStorage.setItem("cookiesAccepted", "true");
+        cookiePopup.style.display = "none";
+    });
+</script>
 </body>
 </html>
