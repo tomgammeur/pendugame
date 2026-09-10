@@ -54,6 +54,9 @@ h2 {
 
 h3 {
 text-align: left;
+font-family: "Codec Pro";
+color:white;
+transition: all 0.5s;
 }
 
 .loader {
@@ -89,12 +92,14 @@ text-align: left;
 }
 .hachedeux
     {
-        color : red;
+        font-family: "Codec Pro";
+        font-weight: bold;
     }
 
 .hachedeux:hover
     {
-        color : green;
+        font-family: "Codec Pro";
+        font-weight: bold;
     }
 button {
   display: inline-block;
@@ -148,14 +153,27 @@ button:hover span:after {
     font-family: "Codec Pro";
   }
 
-  .reponse {
+.reponse {
     width: 700px;
     padding: 20px 0;
-  }
+    opacity: 1;
+    max-height: 300px;
+    overflow: hidden;
+    transition: 
+        opacity 0.2s ease,
+        max-height 0.2s ease,
+        padding 0.2s ease;
+    font-family: "Codec Pro";
+}
 
-  .cache {
-    display: none;
-  }
+.reponse.cache {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
   key {
     display: inline-block;
     background-color: #ff1117;
@@ -437,4 +455,27 @@ background-color: #FF6600
 
 .cookie-popup button:active {
   transform: scale(0.94);
+}
+.share-box {
+    display: inline-block;
+    padding: 20px 25px;
+    border-radius: 44px;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    text-align: center;
+}
+
+.share-box h3 {
+margin-top: 0;
+margin-bottom: 15px;
+text-align: left;
+font-family: "Codec Pro";
+color:white;
+transition: all 0.5s;
+}
+
+.share-box .a2a_kit {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
 }
