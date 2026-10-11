@@ -7,7 +7,6 @@
     <link rel="icon" type="image/x-icon" href="favicon (1).ico">
     <link href="https://fonts.cdnfonts.com/css/codec-pro" rel="stylesheet">
     <title>Jeu du Pendu</title>
-    
 </head>  
   <body>
         <div class="loader-wrapper">
@@ -73,7 +72,6 @@
     <script>
       const btnShow = document.querySelector(".solution");
       const answer = document.querySelector(".reponse");
-
       const clickBtn = function () {
         if (answer.classList.toggle("cache")) {
           btnShow.textContent = "Revoir";
@@ -81,7 +79,6 @@
           btnShow.textContent = "Cacher";
         }
       };
-
       btnShow.addEventListener("click", clickBtn);
     </script>
     <blockquote>
@@ -113,17 +110,209 @@
         <a class="a2a_button_email"></a>
     </div>
 </div>
-
 <script>
 var a2a_config = a2a_config || {};
 a2a_config.locale = "fr";
 </script>
 <script defer src="https://static.addtoany.com/menu/page.js"></script>
     <center><h4>Petite ambiance ?</h4></center>
-    <audio controls>
-      <source src="Waiting for Stage - Discord.mp3" type="audio/mpeg">
-    Your browser does not support the audio element. Erreur 12
+  <div class="music-player">
+    <div class="track-info">
+      <div class="music-cover" aria-hidden="true">♫</div>
+      <div class="track-text">
+        <strong>Musique d'attente</strong>
+      <!--<span>Nom de l'artiste</span>-->
+      </div>
+    </div>
+    <audio id="music" preload="metadata">
+      <source src="Waiting for Stage - Discord.mp3"
+              type="audio/mpeg">
+      Ton navigateur ne supporte pas la lecture audio.
     </audio>
+    <div class="timeline">
+      <span id="current">0:00</span>
+      <input
+        id="progress"
+        type="range"
+        min="0"
+        max="100"
+        step="0.1"
+        value="0"
+        aria-label="Position dans le morceau"
+        aria-valuetext="0:00"
+      >
+      <span id="duration">0:00</span>
+    </div>
+    <div class="controls">
+      <button class="icon-btn" id="restart"
+              aria-label="Recommencer le morceau"
+              title="Recommencer">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M3 11a9 9 0 1 1 2.6 6.4"/>
+          <path d="M3 4v7h7"/>
+        </svg>
+      </button>
+      <button id="play" class="play-btn"
+              aria-label="Lecture" title="Lecture">
+        <svg class="play-icon" viewBox="0 0 24 24"
+             aria-hidden="true">
+          <path d="M8 5.5 L19 12 L8 18.5 Z"
+                fill="currentColor"/>
+        </svg>
+      </button>
+      <div class="volume-control">
+
+        <button class="icon-btn" id="mute"
+                aria-label="Couper le son"
+                title="Couper le son">
+
+          <svg id="volumeIcon" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round"
+               stroke-linejoin="round" aria-hidden="true">
+            <path d="M11 5 6 9H3v6h3l5 4z"/>
+            <path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+            <path d="M18.5 5.5a9 9 0 0 1 0 13"/>
+          </svg>
+        </button>
+        <input
+          id="volume"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          value="1"
+          aria-label="Volume"
+        >
+      </div>
+    </div>
+  </div>
+  <script>
+    const audio = document.getElementById("music");
+    const play = document.getElementById("play");
+    const progress = document.getElementById("progress");
+    const current = document.getElementById("current");
+    const duration = document.getElementById("duration");
+    const volume = document.getElementById("volume");
+    const mute = document.getElementById("mute");
+    const volumeIcon = document.getElementById("volumeIcon");
+    const playIcon = `
+      <svg class="play-icon" viewBox="0 0 24 24"
+           aria-hidden="true">
+        <path d="M8 5.5 L19 12 L8 18.5 Z"
+              fill="currentColor"/>
+      </svg>`;
+
+    const pauseIcon = `
+      <svg class="play-icon" viewBox="0 0 24 24"
+           aria-hidden="true">
+        <path d="M7 5 H10 V19 H7 Z
+                 M14 5 H17 V19 H14 Z"
+              fill="currentColor"/>
+      </svg>`;
+    const soundIcon = `
+      <path d="M11 5 6 9H3v6h3l5 4z"/>
+      <path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+      <path d="M18.5 5.5a9 9 0 0 1 0 13"/>`;
+    const mutedIcon = `
+      <path d="M11 5 6 9H3v6h3l5 4z"/>
+      <path d="m16 9 5 6m0-6-5 6"/>`;
+    function formatTime(seconds) {
+      if (!Number.isFinite(seconds)) return "0:00";
+      const minutes = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${minutes}:${String(secs).padStart(2, "0")}`;
+    }
+    function updateVolumeIcon() {
+      volumeIcon.innerHTML =
+        (audio.muted || audio.volume === 0)
+          ? mutedIcon
+          : soundIcon;
+      mute.setAttribute(
+        "aria-label",
+        audio.muted ? "Activer le son" : "Couper le son"
+      );
+      mute.title = audio.muted ? "Activer le son" : "Couper le son";
+    }
+    play.addEventListener("click", async () => {
+      if (audio.paused) {
+        try {
+          await audio.play();
+        } catch (error) {
+          console.error("Erreur de lecture du MP3 :", error);
+        }
+      } else {
+        audio.pause();
+      }
+    });
+    audio.addEventListener("play", () => {
+      play.innerHTML = pauseIcon;
+      play.setAttribute("aria-label", "Pause");
+      play.title = "Pause";
+    });
+    audio.addEventListener("pause", () => {
+      play.innerHTML = playIcon;
+      play.setAttribute("aria-label", "Lecture");
+      play.title = "Lecture";
+    });
+    audio.addEventListener("ended", () => {
+      play.innerHTML = playIcon;
+      play.setAttribute("aria-label", "Lecture");
+      play.title = "Lecture";
+    });
+    audio.addEventListener("loadedmetadata", () => {
+      duration.textContent = formatTime(audio.duration);
+    });
+    audio.addEventListener("durationchange", () => {
+      duration.textContent = formatTime(audio.duration);
+    });
+    audio.addEventListener("timeupdate", () => {
+      current.textContent = formatTime(audio.currentTime);
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        progress.value = audio.currentTime / audio.duration * 100;
+      }
+      progress.setAttribute(
+        "aria-valuetext",
+        formatTime(audio.currentTime)
+      );
+    });
+    progress.addEventListener("input", () => {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        audio.currentTime =
+          Number(progress.value) / 100 * audio.duration;
+      }
+    });
+    audio.volume = Number(volume.value);
+    volume.addEventListener("input", () => {
+      audio.volume = Number(volume.value);
+      audio.muted = false;
+      updateVolumeIcon();
+    });
+    mute.addEventListener("click", () => {
+      if (audio.muted || audio.volume === 0) {
+        audio.muted = false;
+        if (audio.volume === 0) {
+          audio.volume = 1;
+          volume.value = "1";
+        }
+      } else {
+        audio.muted = true;
+      }
+      updateVolumeIcon();
+    });
+    document.getElementById("restart").addEventListener("click", async () => {
+      audio.currentTime = 0;
+      try {
+        await audio.play();
+      } catch (error) {
+        console.error("Erreur de lecture du MP3 :", error);
+      }
+    });
+    updateVolumeIcon();
+  </script>
 <div id="cookiePopup" class="cookie-popup">
     <p>
         Ce site est affilié à Tomie Corp.
@@ -131,12 +320,10 @@ a2a_config.locale = "fr";
             En savoir plus
         </a>
     </p>
-
     <button id="acceptCookies" type="button">
         J'accepte
     </button>
 </div>
-
 <script>
     const cookiePopup = document.getElementById("cookiePopup");
     const acceptCookies = document.getElementById("acceptCookies");
@@ -148,6 +335,5 @@ a2a_config.locale = "fr";
         cookiePopup.style.display = "none";
     });
 </script>
-
 </body>
 </html>
