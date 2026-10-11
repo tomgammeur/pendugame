@@ -12,9 +12,6 @@ C'est un site que j'ai fait en utilisant le __HTML, JS, CSS__
 
 <h2></h2>
 
-<img src="https://www.readmecodegen.com/api/social-icon?name=play&size=66" alt="play" />[![Typing SVG](https://readme-typing-svg.demolab.com?font=Google+Sans&weight=100&size=18&pause=1000&color=F7F7F7&repeat=false&width=435&lines=Jouez+!)](https://git.io/typing-svg)
-
-<a href="https://tomgammeur.github.io/pendugame">Cliquez ici</a>
-
+<a href="https://tomgammeur.github.io/pendugame"><img src="https://www.readmecodegen.com/api/social-icon?name=play&shape=circle&reverseBackground=true&textAlignment=horizontal&showText=true&text=Jouez+maintenant&textColor=%2310b981&link=https%3A%2F%2Ftomgammeur.github.io%2Fpendugame" alt="play" /></a>
 
 
