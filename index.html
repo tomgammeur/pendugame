@@ -81,9 +81,15 @@
       };
       btnShow.addEventListener("click", clickBtn);
     </script>
+    <div class="boutons-extra">
+        <button class="solution large" id="btnShare">Partager</button>
+        <button class="solution large" id="btnMusic">Lancer la musique</button>
+    </div>
     <blockquote>
     </blockquote>
-    <p>ㅤㅤㅤㅤ</p>
+    <blockquote>
+    </blockquote>
+    <p></p>
     <blockquote>
     </blockquote>
     <p></p>
@@ -92,9 +98,7 @@
     <p></p>
     <blockquote>
     </blockquote>
-    <p></p>
-    <blockquote>
-    </blockquote>
+<div class="zone cachee" id="zoneShare">
 <div class="share-box">
     <left><h2 class="hachedeux">Ce jeu vous plait ?</h2></left>
     <h3>Partagez-le !</h3>
@@ -110,11 +114,13 @@
         <a class="a2a_button_email"></a>
     </div>
 </div>
+</div>
 <script>
 var a2a_config = a2a_config || {};
 a2a_config.locale = "fr";
 </script>
 <script defer src="https://static.addtoany.com/menu/page.js"></script>
+    <div class="zone cachee" id="zoneMusic">
     <center><h4>Petite ambiance ?</h4></center>
   <div class="music-player">
     <div class="track-info">
@@ -189,6 +195,7 @@ a2a_config.locale = "fr";
         >
       </div>
     </div>
+  </div>
   </div>
   <script>
     const audio = document.getElementById("music");
@@ -333,6 +340,27 @@ a2a_config.locale = "fr";
     acceptCookies.addEventListener("click", function () {
         localStorage.setItem("cookiesAccepted", "true");
         cookiePopup.style.display = "none";
+    });
+</script>
+<script>
+    const zoneShare = document.getElementById("zoneShare");
+    const zoneMusic = document.getElementById("zoneMusic");
+    const btnShare = document.getElementById("btnShare");
+    const btnMusic = document.getElementById("btnMusic");
+    btnShare.addEventListener("click", () => {
+        const cachee = zoneShare.classList.toggle("cachee");
+        btnShare.textContent = cachee ? "Partager" : "Cacher";
+    });
+    btnMusic.addEventListener("click", () => {
+        const musique = document.getElementById("music");
+        const cachee = zoneMusic.classList.toggle("cachee");
+        if (cachee) {
+            musique.pause();
+            btnMusic.textContent = "Lancer la musique";
+        } else {
+            musique.play().catch(() => {});
+            btnMusic.textContent = "Arrêter la musique";
+        }
     });
 </script>
 </body>
