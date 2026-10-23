@@ -1,10 +1,15 @@
 body {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            text-align: center;
-          animation-duration: 3s;
-              background-image: url('color.jpg');
-          font-size: 150%;
-        animation-name: slidein;
+    font-family: 'Codec Pro', sans-serif;
+    text-align: center;
+    animation-duration: 3s;
+    background-image: url('color.jpg');
+    background-repeat: no-repeat;     
+    background-size: cover;          
+    background-position: center;      
+    background-attachment: fixed;     
+    min-height: 100vh;
+    font-size: 150%;
+    animation-name: slidein;
         }
 @keyframes slidein {
   from {
@@ -42,11 +47,18 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #ffffff;
+    background: linear-gradient(181deg, #040029, #2b0079);
     display: flex;
+    flex-direction: column;   
+    gap: 25px;                 
     justify-content: center;
     align-items: center;
     z-index: 9999;
+}
+
+.loader-logo {
+    max-width: 150px;         
+    height: auto;
 }
 
 h3 {
@@ -61,12 +73,12 @@ font-family: "Codec Pro";
 color:rgb(0, 0, 0);
 }
 .loader {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
+    border: 4px solid #f3f3f300;
+    border-top: 4px solid #ffffff;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    animation: spin 2s linear infinite;
+    animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
@@ -107,25 +119,28 @@ color:rgb(0, 0, 0);
         font-weight: bold;
     }
 button {
-  display: inline-block;
-  background-color: #7b38d8;
-  border-radius: 10px;
-  border: 4px double #cccccc;
-  color: #eeeeee;
-  text-align: center;
-  font-size: 14px;
-  padding: 20px;
-  width: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
+    display: inline-block;
+    background-color: #7b38d8;
+    border-radius: 40px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    font-family: 'Codec Pro';
 }
+
 button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
+
 button span:after {
   content: "\00bb";
   position: absolute;
@@ -421,6 +436,7 @@ background-color: #FF6600
     font-size: 14px;
 }
 
+
 .cookie-popup p {
     margin: 0 0 2px 0;
 }
@@ -429,16 +445,16 @@ background-color: #FF6600
     color: #66b3ff;
     text-decoration: underline;
 }
-
 .cookie-popup button {
   font-family: "Codec Pro";
   background: linear-gradient(135deg, #2563eb, #7c3aed);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 7px 5px;
   cursor: pointer;
   border-radius: 800px;
   font-weight: bold;
+  font-size: 16px;
 
   transition: 
     transform 0.2s ease,
@@ -447,14 +463,12 @@ background-color: #FF6600
 
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
 }
-
 .cookie-popup button:hover {
   background: linear-gradient(135deg, #60a5fa, #a78bfa);
   transform: scale(1.08);
 
   box-shadow: 0 6px 18px rgba(139, 92, 246, 0.5);
 }
-
 .cookie-popup button:active {
   transform: scale(0.94);
 }
@@ -672,6 +686,7 @@ transition: all 0.5s;
     background-color: rgb(128, 0, 255);
     transition: all 0.5s;
 }
+
 .solution.large:hover {
     width: auto;
     padding: 8px 20px;
@@ -679,8 +694,8 @@ transition: all 0.5s;
     background-color: rgb(204, 152, 255);
     transition: all 0.5s;
 }
+
 .zone {
-    overflow: hidden;
     max-height: 700px;
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -689,6 +704,7 @@ transition: all 0.5s;
         opacity 0.5s ease,
         transform 0.5s ease;
 }
+
 .zone.cachee {
     max-height: 0;
     opacity: 0;
